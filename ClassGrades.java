@@ -4,33 +4,33 @@ import java.util.PriorityQueue;
 
 public class ClassGrades {
 	
-	private PriorityQueue<GradeChunk> gradesList;
-	private Iterator<GradeChunk> gradeIterator;
+	private PriorityQueue<AssignmentGrade> gradesList;
+	private Iterator<AssignmentGrade> gradeIterator;
 	private String className;
 	private double percentageCompleted;
 	
 	// add a professorName too?
 	
 	public ClassGrades() {
-		gradesList = new PriorityQueue<GradeChunk>();
+		gradesList = new PriorityQueue<AssignmentGrade>();
 		gradeIterator = gradesList.iterator();
 		className = "Class With No Name";
 		percentageCompleted = 0;
 	}
 	
 	public ClassGrades(String theClass) {
-		gradesList = new PriorityQueue<GradeChunk>();
+		gradesList = new PriorityQueue<AssignmentGrade>();
 		gradeIterator = gradesList.iterator();
 		className = theClass;
 		percentageCompleted = 0;
 	}
 	
-	public Iterator<GradeChunk> getIterator() {
+	public Iterator<AssignmentGrade> getIterator() {
 		return gradeIterator;
 	}
 	
-	public PriorityQueue<GradeChunk> getCopyOfGrades() {
-		return new PriorityQueue<GradeChunk>(gradesList);
+	public PriorityQueue<AssignmentGrade> getCopyOfGrades() {
+		return new PriorityQueue<AssignmentGrade>(gradesList);
 	}
 	
 	public String getClassName() {
@@ -43,20 +43,20 @@ public class ClassGrades {
 	
 	
 // ------------------------------------------------------------------------------------------------------- //
-	class GradeChunk implements Comparable<GradeChunk>{
+	class AssignmentGrade implements Comparable<AssignmentGrade>{
 		private String assignment; // name of assignment
 		private double percentage; // percentage of total grade
 		private double grade; // grade received
 		
 		// maybe make a copy constructor?
 		
-		public GradeChunk() {
+		public AssignmentGrade() {
 			assignment = "Empty Assignment";
 			percentage = 0;
 			grade = 0;
 		}
 		
-		public GradeChunk(String assignmentName, double percentageOfTotalGrade, double gradeReceived) {
+		public AssignmentGrade(String assignmentName, double percentageOfTotalGrade, double gradeReceived) {
 			assignment = assignmentName;
 			percentage = percentageOfTotalGrade;
 			grade = gradeReceived;
@@ -87,7 +87,7 @@ public class ClassGrades {
 		}
 		
 		@Override
-		public int compareTo(GradeChunk toCompare) {
+		public int compareTo(AssignmentGrade toCompare) {
 			double diff = toCompare.percentage - this.percentage;
 			int intDiff = (int) (diff*10000);
 			return intDiff;	
@@ -100,14 +100,14 @@ public class ClassGrades {
 	}
 // ------------------------------------------------------------------------------------------------------- //
 
-	public GradeChunk addGrade(GradeChunk g) {
+	public AssignmentGrade addGrade(AssignmentGrade g) {
 		gradesList.add(g);
 		percentageCompleted += g.getPercentage();
 		return g;
 	}
 	
 	// might have to change implementation
-	public GradeChunk removeGrade(GradeChunk g) {
+	public AssignmentGrade removeGrade(AssignmentGrade g) {
 		gradesList.remove(g);
 		percentageCompleted -= g.getPercentage();
 		return g;
@@ -121,17 +121,17 @@ public class ClassGrades {
 			return -1;
 		
 		double overallGrade = 0;
-		PriorityQueue<GradeChunk> grades = getCopyOfGrades();
+		PriorityQueue<AssignmentGrade> grades = getCopyOfGrades();
 		
 		/* This gives ConcurrentModificationException
-		Iterator<GradeChunk> i = getIterator();
+		Iterator<AssignmentGrade> i = getIterator();
 		while (i.hasNext()) {
-			GradeChunk g = (GradeChunk) i.next();
+			AssignmentGrade g = (AssignmentGrade) i.next();
 			overallGrade += g.getPercentage() * g.getGrade();
 		}
 		*/
 		while (!grades.isEmpty()) {
-			GradeChunk g = grades.remove();
+			AssignmentGrade g = grades.remove();
 			overallGrade += g.getPercentage() * g.getGrade();
 		}
 		return (overallGrade / percentageCompleted);
@@ -150,17 +150,17 @@ public class ClassGrades {
 // ------------------------------------------------------------------------------------------------------- //
 	public static void main(String[] args) {
 		ClassGrades grades = new ClassGrades();
-		ClassGrades.GradeChunk g = grades.new GradeChunk("PSA 1", 0.50, 95);
+		ClassGrades.AssignmentGrade g = grades.new AssignmentGrade("PSA 1", 0.50, 95);
 		grades.addGrade(g);
-		grades.addGrade(grades.new GradeChunk("PSA 2", 0.35, 100));
-		grades.addGrade(grades.new GradeChunk("PSA 3", 0.20, 85));
+		grades.addGrade(grades.new AssignmentGrade("PSA 2", 0.35, 100));
+		grades.addGrade(grades.new AssignmentGrade("PSA 3", 0.20, 85));
 		
 		grades.removeGrade(g);
 		
 		
-		PriorityQueue<GradeChunk> p = grades.getCopyOfGrades();
+		PriorityQueue<AssignmentGrade> p = grades.getCopyOfGrades();
 		while (!p.isEmpty()) {
-			GradeChunk gg = p.remove();
+			AssignmentGrade gg = p.remove();
 			gg.printGrade();
 		}
 		
@@ -168,9 +168,9 @@ public class ClassGrades {
 		System.out.println("Grade to get: "+grades.gradeToGet(90));
 		
 		/*
-		GradeChunk gg = grades.gradesList.remove();
+		AssignmentGrade gg = grades.gradesList.remove();
 		gg.printGrade();
-		GradeChunk a = grades.gradesList.remove();
+		AssignmentGrade a = grades.gradesList.remove();
 		a.printGrade();
 		grades.gradesList.remove().printGrade();
 		*/
