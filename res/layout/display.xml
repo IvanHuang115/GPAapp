@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvClassName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Class Name"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desired Grade"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvDesiredGradeMessage"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="This box will show your desired grade"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/tvDesiredGrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="A"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Current Grade"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvPercentageCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="Percentage Completed: "
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tvCurrentGradeMessage"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="This box will show your current grade"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvCurrentGrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="A"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Grade to Get"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvPercentageLeft"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="Percentage Left: "
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tvRequiredGradeMessage"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="This box will show what grade you need to get"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tvRequiredGrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0.00%"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Assignments"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <!-- 1 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tvAssignment1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment1"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvGrade1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Grade" />
+
+                <TextView
+                    android:id="@+id/tvPercentage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Percentage" />
+            </LinearLayout>
+
+            <!-- 2 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tvAssignment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment2"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvGrade2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Grade" />
+
+                <TextView
+                    android:id="@+id/tvPercentage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Percentage" />
+            </LinearLayout>
+
+            <!-- 3 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="20dp" >
+
+                <TextView
+                    android:id="@+id/tvAssignment3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tvGrade3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Grade" />
+
+                <TextView
+                    android:id="@+id/tvPercentage3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Percentage" />
+            </LinearLayout>
+
+            <!-- 4 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/tvAssignment4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignment4"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvGrade4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Grade" />
+
+                <TextView
+                    android:id="@+id/tvPercentage4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Percentage" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
